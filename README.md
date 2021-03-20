@@ -184,7 +184,7 @@
 
 <br>
 
-## 📌 깃 허브(Git-Hub)에 프로젝트 업로드하기 <small>(local repository -> remote repository)</small>
+## 📌 깃 허브(Git-Hub)에 프로젝트 업로드하기 설정 <small>(local repository -> remote repository)</small>
 - 깃 허브 계정이 있어야 가능합니다
 - 깃 허브에서 remote repository 생성은 생략합니다 (보통 local repository 에서 remote repository 로 업로드 합니다)
 
@@ -216,3 +216,239 @@ ex) `git remote add origin https://github.com/sout1217/sample.git`
 
 ![img](img/010.png)
 
+<br>
+
+## 📌 깃 허브(Git Hub)에 업로드
+`git push [-u origin {마스터명}]` : remote repository 와 연결이 되야 가능합니다
+
+<br>
+
+## 📌 깃 허브(Git Hub) 코드 다운로드
+`git pull`
+
+> TIP : `git pull` 은 `git fetch + git merge` 개념이라고 보면 된다
+
+<br>
+
+## 📌 브랜치 관리
+![img](img/011.png)
+
+`git branch` : 로컬 저장소 브랜치 목록 보기
+
+`git branch -r` : 원격 저장소 브랜치 목록 보기
+
+`git branch -a` : 로컬 저장소, 원격 저장소 브랜치 목록 보기
+
+<br>
+
+## 📌 브랜치 만들기
+`git branch {브랜치명}`  
+ex) `git branch feature-a`
+
+> TIP : 현재 브랜치가 가지고 있는 파일로 새로운 브랜치를 생성합니다
+
+- master 브랜치는 a,b,c 파일을 갖고 있으며,
+- develop 브랜치는 a, b, c , d 파일을 갖고 있으며,
+- feature 브랜치는  a, b, c, d, e 파일을 갖고 있다고 가정한다면
+- master 브랜치에서 새로운 브랜치를 생성하면 a,b,c 를 갖고,
+- feature 브랜치에서 새로운 브렌치를 생성하면 a, b, c, d, e 파일을 갖고 있는다
+
+
+<br>
+ 
+## 📌 다른 브랜치로 변경하기
+`git checkout {브랜치명}` : 해당 브랜치로 변경합니다
+
+`git checkout -` : 이전 브랜치로 변경합니다
+
+<br>
+
+## 📌 생성한 브랜치에서 원격 저장소에 업로드하기 (something branch local repository -> remote repository)
+`git push -u origin {해당 브랜치명}` or `git push --set-upstream origin {브랜치명}`  
+ex) `git push -u origin feature-a`
+
+<br>
+
+## 📌 브랜치를 생성하면서 브랜치 변경하기
+`git checkout -b {브랜치명}`
+ 
+<br>
+
+## 📌 브랜치 삭제하기
+`git branch -d {브랜치명}`
+
+> TIP : 브랜치는 삭제되지만, 다시 똑같은 브랜치 명으로 생성하면 commit 이 남아있습니다
+
+
+## 📌 2개의 브랜치 병합하기
+`git checkout {병합될 브랜치명}`  
+`git merge {병합할 브랜치명}` 
+
+<br>
+
+## 📌 Pull Request (Merging Pull Request)
+두 개를 병합할 떄는`pr(pull request)`  을 통해 수행하는 것이 가장 좋습니다  
+`pr(pull request)` 를 할 경우 `원격 저장소(remote repository) - pull requests` 탭에 요청 기록이 쌓이며, 요청을 허가하면 
+그 때 2개의 브랜치가 `병합(merge)` 됩니다
+
+<br>
+
+## 📌 로컬과 원격 로그 한 줄로 보기
+`git log --oneline`
+
+<br>
+
+## 📌 깃 워크 플로우
+`remote repository` 의 `master branch` 의 `HEAD commit (최신 커밋)` 을 `git pull` 한 후
+
+새로운 `branch` 를 하나 만들어 작업을 진행 합니다
+
+작업을 진행하기 앞서 모든 `local commit` 을 먼저 `sqush(스쿼시)` 를 한 후 작업하는 것을 권합니다
+
+그 이유는 `local repository` 를 `rebase` 를 할 때 `conflict (충돌)` 이 발생하기 때문입니다
+
+`master branch` 를 `rebase` 하여 `commit` 을 `sqush` 합니다
+
+<br>
+
+`commit` 을 하지않고 임시 저장하기 위해서는 `stash` 를 이용합니다
+
+<br>
+
+![img](./img/012.png)
+
+<br>
+
+## 📌 병합 충돌 (Merge Conflict)
+
+> 시나리오  
+> a는 local repository 에서 작업한 commit 들을 remote repository 에 push 하려고 한다  
+> remote repository 는 a 의 commit 과 달라진 것이 많다  
+> a 는 remote repository 에서 push 를 하자 다른 내용이 존재하기 때문에 push 를 거부 한다    
+> a 는 remote repository git pull 을 했더니 conflict (충돌) 이 나면서 merging conflict(병합 충돌)이 발생한다
+
+![img](./img/013.png)
+
+위 이미지에서
+
+나 = `local repository` 에서는 `<p>This is a another paragraph.</p>` 로 되 있지만
+
+외부 = `remote repository` 에서는 `&lt;h1>This is a Heading&lt;h1> <p>This is a another paragraph.</p>`
+
+으로 되어 있어 서로 충돌이 발생하여 자동으로 저런식으로 작성이 됩니다
+
+`<<<<<<< HEAD` 는 현재 `local repository` 의 `HEAD` 를 말합니다
+
+`>>>>>>> ae128791635b.....ff88` 은 `remote repository` 에 커밋해시를 가르켜준다
+
+<br>
+
+## 📌 리베이스 (rebase) : 원하는 지점(커밋)에 내용을 수정하거나 추가하고자 할 때
+`git pull -r origin {가져올 브랜치명}`
+
+원격 저장소의 내용을 rebase 하여 가져옵니다
+
+추가하거나 변경하고자 할 때에는 stage 에 이동해야 하기 떄문에 git add . 를 해줍니다
+
+`git add .`
+
+더 이상 수정할 내용이 없는 경우 commit 이 아닌 `rebase --continu` 를 이용합니다
+
+`git rebase --continue`
+
+<br>
+
+`rebase --continue` 를 해서 또 `conflict` 가 발생한다면 해당 파일을 다시 수정 후
+
+다시 한 번 `git rebase --continue` 를 하면 됩니다
+
+## 📌 강제 원격 저장소 업로드
+`git push -f`
+
+현재 가지고 있는 `local repository` 의 `commit` 들로 교체 됩니다
+
+즉, `remote repository` 의 `commit` 들은 날라가고 `local repository`  의 `commit` 으로 변경됩니다 
+
+위에서 rebase 를 하여 `remote repository` 의 모든 `commit` 내용들을 내 `local repository` 로 가져와 
+
+`merging conflict (충돌 병합)` 했다면, 강제로 `pust` 해도 됩니다
+
+<br>
+
+## 📌 stage 에서 working directory 로 리셋(이동)
+`git reset HEAD` or `git reset --mixed HEAD`
+
+<br>
+
+`git reset HEAD {파일명}` : 특정 파일만 리셋(이동) - 최초 1번 이상은 커밋이 되야 한다
+
+<br>
+
+## 📌 woring directory 에서 local repository 에 commit
+`git commit -am "{커밋 메시지}"`
+
+- 해당 파일이 1번 이라도 commit 된 적이 있다면 Working Directory 에서 Local Repository 로 바로 commit 이 가능하다
+- 두 번째 방법은 첫 번째 방법과 vi 편집창으로 넘어가지 않고 바로 커밋된다
+
+<br>
+
+## 📌 local repository 에서 stage 로 리셋(이동)
+`git reset --soft HEAD`
+
+<br>
+
+## 📌 특정 지정 commit 으로 리셋(이동)
+`git reset --hard {커밋해시}`
+
+<br>
+
+## 📌 특정 커밋에 내용 버리기
+`git revert {커밋해시}`
+
+> TIP :
+> 3. 상대주소 HEAD~3  
+> 4. 절대주소 commit1..commit2 
+
+<br>
+
+## 📌 깃 모든 로그
+`git reflog`
+
+reset, revert 등 모든 로그를 확인할 수 있으며, 해당 주소를 통해 돌아갈 수 있다
+
+<br>
+
+## 📌 롤백 rollback (ItenlliJ 전용)
+`git reset --mixed [HEAD]` 
+
+`git reset --hard [HEAD]` 
+
+<br>
+
+## 📌 stage, repository 삭제된 파일 복구
+`git restore {파일명}`
+
+<br>
+
+## 📌 stage -> working directory 
+`git restore --staged {파일명} `
+
+해당 파일은 `working directory` 안에 존재한다
+
+<br>
+
+## 📌 숨기기 stash
+`git stash save [파일명]` : stage 에 파일들을 stack 공간에 임시 저장한다
+
+`git stash apply [stash 이름]` : 가장 최근에 stash 에 입력 된 내용들을 가지고 온다
+
+`git stash drop [stash 이름]` : 가장 최근에 stash 내용을 제거한다
+
+`git stash pop` : 가장 최근 내용을 가져오면서 stash 에서 제거한다 (apply + drop)
+
+`git stash show -p [[stash 이름] | git apply -R` : stash 되돌리기
+
+<br>
+
+## 📌 체리 픽
+`git cherry-pick` : 체리픽 커밋은 다른 브랜치를 내가 작업한 브랜치로 합치는 커밋
