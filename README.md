@@ -6,15 +6,41 @@
 
 ## 📌 깃 기본 한눈에 보기
 
-![img](./img/000.png)
-
 <br>
 
-![img](./img/000-1.png)
+![img](img/000.png)
 
 <br>
 
 ![git-flow](https://img1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/3K6t/image/_630fSrZQJj7XdswACSoCGDI1vE.png)
+
+<br>
+
+![img](img/000-1.png)
+
+<br>
+
+![img](img/000-2.png)
+
+<br>
+
+![img](img/000-3.png)
+
+<br>
+
+![img](img/000-4.png)
+
+<br>
+
+![img](img/000-5.png)
+
+<br>
+
+![img](img/000-6.png)
+
+<br>
+
+![img](img/000-7.png)
 
 <br>
 
