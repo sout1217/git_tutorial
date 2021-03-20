@@ -4,7 +4,7 @@
 
 <br>
 
-##  📌 깃 관리 영역
+## 📌 깃 관리 영역
 `working directory > stage > local repository > remote repository`
 
 `작업 디렉토리 > 스테이지 > 로컬 저장소 > 원격 저장소`
@@ -16,48 +16,48 @@
 
 <br>
 
-##  📌 깃 Bash 창 내용 지우기
+## 📌 깃 Bash 창 내용 지우기
 `clear` or `ctrl + l`  
 
 <br>
 
-##  📌 깃 콘픽 설정 하기
+## 📌 깃 콘픽 설정 하기
 `git config --global user.name "이름"`  
 `git config --global user.email "이메일"`  
 `git config --global color.ui auto`
 
 <br>
 
-##  📌 깃 콘픽 설정 보기
+## 📌 깃 콘픽 설정 보기
 `git config -l`
 
 <br>
 
-##  📌 디렉토리 생성
+## 📌 디렉토리 생성
 `mkdir 파일명`
 
 <br>
 
-##  📌 디렉토리 보기
+## 📌 디렉토리 보기
 `ls` : 파일 보기 (.git 디렉토리 안보임)
 
 `ls -a` : 모든 파일 보기
 
 <br>
 
-##  📌 깃 시작 하기
+## 📌 깃 시작 하기
 `git init`
 
 <br>
 
-##  📌 깃 제거 하기
+## 📌 깃 제거 하기
 `rm -rf .git`
 
 `rm -rf {파일 또는 디렉토리}` : 묻지 않고 바로 제거
 
 <br>
 
-##  📌 파일 생성 하기
+## 📌 파일 생성 하기
 `touch {파일명}`
 
  ex) `touch index.html`
@@ -65,7 +65,7 @@
 
 <br>
 
-##  📌 깃 현재 상태 보기
+## 📌 깃 현재 상태 보기
 `git status` : branch, untracked,  new file, modified, deleted 등 정보를 알 수 있다
 
 
@@ -78,7 +78,7 @@
 
 <br>
 
-##  📌 깃 추가하기 <small>working directory -> stage</small>
+## 📌 깃 추가하기 <small>working directory -> stage</small>
 `git add {파일명}` : `working directory` 의 해당 파일을 `stage` 에 이동
 
 `git add .` : 현재 디렉토리의 `working directory` 의 파일을 모두 `stage` 에 이동
@@ -87,8 +87,8 @@
 
 <br>
 
-##  📌 깃 커밋하기 <small>stage -> local repository</small>
-`git commit -m {메시지}`
+## 📌 깃 커밋하기 <small>stage -> local repository</small>
+`git commit -m "{메시지}"`
 
 <br>
 
@@ -98,7 +98,7 @@
 
 <br>
 
-##  📌 깃 로그 보기
+## 📌 깃 로그 보기
 `git log`
 
 <br>
@@ -116,7 +116,7 @@
 
 <br>
 
-##  📌 깃 보기
+## 📌 깃 보기
 `git show {커밋해시}`
 
 <br>
@@ -127,7 +127,7 @@
 
 <br>
 
-##  📌  파일 편집하기
+## 📌  파일 편집하기
 `vi {파일명}` : 파일 에디터 실행
 
 <br>
@@ -145,7 +145,7 @@
 
 <br>
 
-##  📌 파일 내용 보기
+## 📌 파일 내용 보기
 `cat {파일명}` : 파일 내용 보기
 
 <br>
@@ -155,7 +155,7 @@
 
 <br>
 
-##  📌  이전 커밋과 다른 점 비교하기
+## 📌 이전 커밋과 다른 점 비교하기
 `git diff`
 
 <br>
@@ -166,4 +166,32 @@
  
  `+console.log('Hello Git')` : + 내용이 추가 됨
  `-console.log('Hello Git')` : - 내용이 삭제 됨
+
+<br>
+
+## 📌 최근에 커밋된 메시지 내용 수정하기
+`git commit --amend [-m] "{메시지}"`
+
+<br>
+
+![img](./img/007.png)
+
+<br>
+
+`git log` 를 이용하여 메시지 내용이 변경된 것을 확인한다
+
+![img](./img/008.png)
+
+<br>
+
+## 📌 깃 허브(Git-Hub)에 프로젝트 업로드하기 <small>(local repository -> remote repository)</small>
+- 깃 허브 계정이 있어야 가능합니다
+- 깃 허브에서 remote repository 생성은 생략합니다 (보통 local repository 에서 remote repository 로 업로드 합니다)
+
+`git remote add origin {깃헙주소}`  
+ex) `git remote add origin https://github.com/sout1217/sample.git`
+
  
+
+
+
