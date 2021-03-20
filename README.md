@@ -4,6 +4,20 @@
 
 <br>
 
+## 📌 깃 기본 한눈에 보기
+
+![img](./img/000.png)
+
+<br>
+
+![img](./img/000-1.png)
+
+<br>
+
+![git-flow](https://img1.daumcdn.net/thumb/R1280x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/3K6t/image/_630fSrZQJj7XdswACSoCGDI1vE.png)
+
+<br>
+
 ## 📌 깃 관리 영역
 `working directory > stage > local repository > remote repository`
 
