@@ -191,7 +191,28 @@
 `git remote add origin {깃헙주소}`  
 ex) `git remote add origin https://github.com/sout1217/sample.git`
 
- 
+<br>
 
+`git push -u -origin {마스터명}` : 위 에서 `git remote add` 로 연결한 `remote repository` 에 파일을 업로드 합니다
 
+> TIP : remote repository 에 push 하기 위해서는 `git-hub>SSH and GPG keys>SSH keys>generating SSH keys>Generating a new SSH key and adding it to the ssh-agent>Windows ` 에서 인증을 받아야 합니다  
+>
+> `ssh-keygen -t ed25519 -C "{이메일}"` 비밀번호는 작성안해도 가능합니다   
+> `eval "$(ssh-agent -s)"`  
+> `vi ~/.ssh/config`
+> `Host * AddKeysToAgent yes UseKeychain yes IdentityFile ~/.ssh/id_ed25519`  
+> `ssh-add -K ~/.ssh/id_ed25519`
+> `cat ~/.ssh/id_ed25519.pub` : 나오는 키를 복사 `pbcopy < ~/.ssh/id_ed25519.pub` 로 복사 가능
+> `git hub > New SSH key` 클릭 후 `id_ed25519.pub` 키를 붙여넣기
+
+![img](img/009.png)
+
+<br> 
+
+## 📌 깃 마스터 브랜치명 변경 및 브랜치 리스트 조회하기
+`git branch -M {마스터명}` : 마스터명을 바꿉니다
+
+`git branch` : 현재 존재하는 브랜치 목록들을 보여줍니다 
+
+![img](img/010.png)
 
