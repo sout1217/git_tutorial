@@ -301,6 +301,8 @@ ex) `git branch feature-a`
 
 `git checkout -` : 이전 브랜치로 변경합니다
 
+`git checkout {브랜치명} -f` : 해당 브랜치로 변경하고, 파일을 덮어씌웁니다
+
 <br>
 
 ## 📌 생성한 브랜치에서 원격 저장소에 업로드하기 (something branch local repository -> remote repository)
